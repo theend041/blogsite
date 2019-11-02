@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+{% if article %}
+
+<h5>Meqale: {{ article.title }}</h5>
+<hr>
+<h5>Yazar: {{ article.author }}</h5>
+<hr>
+<h5>Vaxt: {{ article.timestamp }}</h5>
+<hr>
+<p>Metn: {{ article.content|safe }}</p>
+
+{% else %}
+<div class = "alert alert-warning">Meqale tapilmir...</div>
+{% endif %}
+
+{% endblock body %}

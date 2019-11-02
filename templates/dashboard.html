@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h1>Dashboard</h1>
+<small>Salam {{ session["username"] }}</small>
+<hr>
+
+<a class = "btn btn-danger" href = "/addarticle">Elave et</a>
+</br></br>
+
+
+{% if articles %}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Time</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for article in articles  %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ article.id }}</th>
+      <td><a href = "/article/{{article.id}}">{{ article.title }}</a></td>
+      <td>{{ article.author }}</td>
+      <td>{{ article.timestamp }}</td>
+      <td><a class = "btn btn-primary" href = "/edit/{{article.id}}">Edit</a></td>
+      <td><a class = "btn btn-danger" href = "/delete/{{article.id}}">Delete</a></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+
+
+{% else %}
+
+<div class = "alert alert-danger">Meqale yoxdur...</div>
+
+{% endif %}
+
+{% endblock body %}

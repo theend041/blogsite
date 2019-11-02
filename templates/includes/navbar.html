@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">Hakkinda </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/articles">Meqaleler </a>
+          </li>
+
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+        {% if session["log_in"] %}
+
+        {% if session["admin"] == 1 %}
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Kontrol Paneli</a>
+        </li>
+        
+        {% else %}
+        {% endif %}
+        
+
+
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/logout">Cixis</a>
+          </li>
+        
+        {% else %}
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/login">Giris </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="/register">Qeydiyyat </a>
+          </li>
+
+        {% endif %}
+
+        </ul>
+
+
+      </div>
+    </nav>

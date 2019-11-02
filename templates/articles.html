@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+
+<h1>Articles</h1>
+<hr>
+<form action = "/search" class="form-inline md-form mr-auto mb-4" method = "post">
+  <input name = "keyword" class="form-control mr-sm-2" type="text" placeholder="Axtar..." aria-label="Axtar">
+  <button class="btn btn-primary btn-rounded" type="submit">Axtar</button>
+</form>
+<hr>
+
+{% if articles %}
+
+{% for article in articles %}
+
+<ul class="list-group">
+  <a href = "/article/{{ article.id }}"> <li class="list-group-item" >{{ article.title }}</li></a>
+</ul>
+
+{% endfor %}
+
+{% else %}
+<div class = "alert alert-danger">Meqale yoxdur</div>
+{% endif %}
+
+
+
+</div>
+
+{% endblock body %}

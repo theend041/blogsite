@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+<h1>Meqale Elave Et</h1>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.title,class = "form-control") }}
+    {{ render_field(form.content,class = "form-control") }}
+  </dl>
+  <button type="submit" class="btn btn-success">Elave Et</button>
+</form>
+
+{% endblock body %}
